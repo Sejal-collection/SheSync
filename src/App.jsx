@@ -6,6 +6,7 @@ import axios from "axios";
 import { appRoutes } from "./routes/appRoutes";
 import { ThemeProvider } from "./context/ThemeContext";
 import SheSyncLoader from "./components/loader";
+import { Analytics } from "@vercel/analytics/react";
 
 const local_url = "http://localhost:3000/";
 const render_url = "https://shesync.onrender.com/";
@@ -71,6 +72,7 @@ function App() {
   return (
     <ThemeProvider>
       {loading ? <SheSyncLoader /> : <RouterProvider router={router} />}
+      <Analytics />
     </ThemeProvider>
   );
 }
